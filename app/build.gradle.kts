@@ -17,8 +17,8 @@ android {
     applicationId = "com.admin.bandhan17.app"
     minSdk = 24
     targetSdk = 36
-    versionCode = 10
-    versionName = "2.2.2"
+    versionCode = 11
+    versionName = "2.2.3"
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
@@ -99,6 +99,15 @@ android {
     unitTests {
       isIncludeAndroidResources = true
       isReturnDefaultValues = true
+      all {
+        it.jvmArgs("-noverify", "-XX:+EnableDynamicAgentLoading")
+        it.systemProperty("robolectric.logging", "stdout")
+        it.testLogging {
+          events("passed", "skipped", "failed", "standardError")
+          showStandardStreams = true
+          exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
+        }
+      }
     }
   }
   dependenciesInfo {

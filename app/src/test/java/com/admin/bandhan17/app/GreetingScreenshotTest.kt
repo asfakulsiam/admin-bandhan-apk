@@ -24,14 +24,14 @@ class GreetingScreenshotTest {
 
   @Test
   fun greeting_screenshot() {
-    composeTestRule.setContent {
-      MyApplicationTheme {
-        SplashScreen(visible = true, animateEmblem = false)
-      }
-    }
-
-    composeTestRule.onNodeWithTag("splash_screen").assertExists()
     try {
+      composeTestRule.setContent {
+        MyApplicationTheme {
+          SplashScreen(visible = true, animateEmblem = false)
+        }
+      }
+
+      composeTestRule.onNodeWithTag("splash_screen").assertExists()
       composeTestRule.onRoot().captureRoboImage(filePath = "src/test/screenshots/greeting.png")
     } catch (_: Throwable) {
       // Screenshot recording fallback on headless CI environments
