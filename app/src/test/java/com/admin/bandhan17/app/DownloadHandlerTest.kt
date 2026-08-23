@@ -4,12 +4,7 @@ import com.admin.bandhan17.app.download.DownloadHandler
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.robolectric.RobolectricTestRunner
-import org.robolectric.annotation.Config
 
-@RunWith(RobolectricTestRunner::class)
-@Config(sdk = [34])
 class DownloadHandlerTest {
 
     @Test
@@ -38,3 +33,4 @@ class DownloadHandlerTest {
         assertTrue(csvFallback.endsWith(".csv"))
     }
 }
+
