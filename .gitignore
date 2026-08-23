@@ -16,3 +16,10 @@
 local.properties
 .env
 debug.keystore
+
+# Never ignore gradle wrapper files
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+!gradlew
+!gradlew.bat
+

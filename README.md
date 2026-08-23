@@ -1,12 +1,15 @@
-# Bandhan 17 Android App
+# Admin Bandhan 17 Android App
 
-Official Android Application for **Bandhan 17**.
+Official Android Application for **Admin Bandhan 17**.
+- **Repository**: [asfakulsiam/admin-bandhan-apk](https://github.com/asfakulsiam/admin-bandhan-apk)
 
 ## Features
+- **Native Security Gatekeeper**: Biometric authentication (Fingerprint / Face Unlock) and device credential fallback (PIN / Password / Pattern) with auto-lock on background resume.
 - **In-App Web Experience**: Native WebView container with pull-to-refresh, offline retry screen, and navigation controls.
+- **Direct In-App Updates**: Automatic update checking and in-app download dialog showing release notes and changelog from GitHub Releases.
 - **Authentication**: Supports Google Sign-In and OAuth workflows.
 - **Modern Jetpack Compose**: Material 3 theming, Edge-to-Edge display, and system bars integration.
-- **Automated CI/CD**: GitHub Actions workflow (`.github/workflows/main.yml`) for automated building, testing, signing, and artifact generation (Debug APK, Release APK, and AAB).
+- **Automated CI/CD**: GitHub Actions workflows for automated building, testing, signing, and release artifact generation (Debug APK, Release APK, and AAB).
 
 ## Building Locally
 To assemble the debug APK:
