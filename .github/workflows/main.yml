@@ -125,6 +125,12 @@ jobs:
       - name: Prepare and Rename Release Assets
         id: prepare_assets
         run: |
+          # Extract versionName from build.gradle.kts
+          GRADLE_VERSION_NAME=$(grep -o 'versionName\s*=\s*"[^"]*"' app/build.gradle.kts | head -n 1 | sed -E 's/versionName\s*=\s*"([^"]*)"/\1/' || echo "2.2.8")
+          if [ -z "$GRADLE_VERSION_NAME" ]; then
+            GRADLE_VERSION_NAME="2.2.8"
+          fi
+
           # Determine Version & Tag
           if [[ "${{ github.ref }}" == refs/tags/v* ]]; then
             TAG_NAME="${GITHUB_REF#refs/tags/}"
@@ -133,8 +139,8 @@ jobs:
             TAG_NAME="${{ inputs.release_tag }}"
             VERSION_STR="${TAG_NAME}"
           else
-            TAG_NAME="v1.0.0"
-            VERSION_STR="v1.0.0"
+            TAG_NAME="v${GRADLE_VERSION_NAME}"
+            VERSION_STR="v${GRADLE_VERSION_NAME}"
           fi
 
           mkdir -p release_assets
